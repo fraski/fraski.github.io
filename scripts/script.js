@@ -90,7 +90,11 @@ function startGame(){
   }
 }
 function newSpell(){
-  answerSpell = Math.floor((Math.random() * 10));
+  newSpell = Math.floor((Math.random() * 10));
+  while(newSpell != answerSpell){
+    newSpell = Math.floor((Math.random() * 10));
+  }
+  answerSpell = newSpell;
   document.getElementById('answerSpell').src = "images/invoker-"+listOfAllSpells[answerSpell]+".png";
 }
 function doGame(){
