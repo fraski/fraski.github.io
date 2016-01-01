@@ -4,22 +4,44 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script type='text/javascript' src='scripts/script.js'></script>
 </head>
-<body>
-  <center><h1> Invoker Game</h1></center>
-  <center><div class="game">
-    <button> Start Game </button>
+<body id="game">
+
+  <center><div class="game" >
+    <h1 class="title"> Invoker Game</h1>
+    <button class = "start" onclick="startGame()"> Start Game </button>
     <div class="currentBalls">
       <img id="ballOne" src="images/invoker-nothing.png" height="50">
       <img id="ballTwo" src="images/invoker-nothing.png" height="50">
       <img id="ballThree" src="images/invoker-nothing.png" height="50">
 
       <img id="spell" src="images/invoker-nothing.png" height="50">
-      <div class ="timerContainer"> <h3 id="timer"> Timer: 0 </h3></div>
+      <div class ="gameInfo"> <h3 id="timer"> Timer: 0 </h3> <h3 id="score"> Score: 0 </h3> <img id="answerSpell" src="images/invoker-nothing.png" height="50"></div>
     </div>
+    <br>
     <button class="ball" onclick="addOrb(1)"><img src="images/invoker-quas.png" height="50"></button>
-    <button class="ball" onclick="addOrb(2)"><img src="images/invoker-wex.png" height="50"> </button>
-    <button class="ball" onclick="addOrb(3)"><img src="images/invoker-exort.png" height="50"></button>
+    <button class="ball" onclick="addOrb(3)"><img src="images/invoker-wex.png" height="50"> </button>
+    <button class="ball" onclick="addOrb(6)"><img src="images/invoker-exort.png" height="50"></button>
     <button class="ball" onclick="invoke()"><img src="images/invoker-invoke.png" height="50"></button>
   </div></center>
+  <script type="text/javascript">
+    document.getElementById("game").onkeypress=function(e){
+    var e=window.event || e;
+    var keyunicode = e.charCode || e.keyCode;
+    switch(keyunicode){
+      case 113:
+        addOrb(1);
+        break;
+      case 119:
+        addOrb(3);
+        break;
+      case 101:
+        addOrb(6);
+        break;
+      case 114:
+        invoke();
+        break;
+    }
+  }
+  </script>
 </body>
 <html>

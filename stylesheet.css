@@ -11,4 +11,29 @@
 }
 #ballThree{
   margin-right:20px;
+  border:2px solid black;
+}
+#ballTwo{
+  border:2px solid black;
+}
+#ballOne{
+  border:2px solid black;
+}
+#spell{
+  border:2px solid black;
+}
+#answerSpell{
+  border:2px solid black;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+#timer{
+  display:inline;
+}
+#score{
+  display:inline;
+}
+.gameInfo{
+
 }

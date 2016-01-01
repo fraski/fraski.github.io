@@ -1,0 +1,13 @@
+q = 1,w = 3, e = 6
+qqq = 3x
+qqw = 5x
+qqe = 8x
+www = 9x
+wwq = 7x
+wwe = 12x
+eee = 18x
+eeq = 13x
+eew = 16x
+qwe = 10x
+theSpell = listOfBalls[0] + listOfBalls[1] + listOfBalls[2];
+switch(theSpell)
