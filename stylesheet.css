@@ -1,4 +1,14 @@
-button{
+.ball{
   border:0px;
   margin:0px;
+  background-color:white;
+}
+.currentBalls{
+  margin-top:5px;
+  margin-left:auto;
+  margin-right:auto;
+  width:275px;
+}
+#ballThree{
+  margin-right:20px;
 }

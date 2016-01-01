@@ -1,20 +1,25 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href = "stylesheet.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script type='text/javascript' src='scripts/script.js'></script>
 </head>
 <body>
   <center><h1> Invoker Game</h1></center>
   <center><div class="game">
+    <button> Start Game </button>
     <div class="currentBalls">
       <img id="ballOne" src="images/invoker-nothing.png" height="50">
       <img id="ballTwo" src="images/invoker-nothing.png" height="50">
       <img id="ballThree" src="images/invoker-nothing.png" height="50">
+
+      <img id="spell" src="images/invoker-nothing.png" height="50">
+      <div class ="timerContainer"> <h3 id="timer"> Timer: 0 </h3></div>
     </div>
-    <button><img src="images/invoker-quas.png" height="50"></button>
-    <button><img src="images/invoker-wex.png" height="50"> </button>
-    <button><img src="images/invoker-exort.png" height="50"></button>
-    <button><img src="images/invoker-invoke.png" height="50"></button>
+    <button class="ball" onclick="addOrb(1)"><img src="images/invoker-quas.png" height="50"></button>
+    <button class="ball" onclick="addOrb(2)"><img src="images/invoker-wex.png" height="50"> </button>
+    <button class="ball" onclick="addOrb(3)"><img src="images/invoker-exort.png" height="50"></button>
+    <button class="ball" onclick="invoke()"><img src="images/invoker-invoke.png" height="50"></button>
   </div></center>
 </body>
 <html>
-    
