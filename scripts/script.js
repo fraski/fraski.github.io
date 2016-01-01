@@ -79,6 +79,7 @@ function invoke(){
 }
 function startGame(){
   if(gameInProgress!= true){
+    document.getElementById('restartGame').style.visibility="visible";
     gameInProgress = true;
     resetGame();
     time = 30;
@@ -90,11 +91,11 @@ function startGame(){
   }
 }
 function newSpell(){
-  newSpell = Math.floor((Math.random() * 10));
-  while(newSpell != answerSpell){
-    newSpell = Math.floor((Math.random() * 10));
+  randNum = Math.floor((Math.random() * 10));
+  while(randNum != answerSpell){
+    randNum = Math.floor((Math.random() * 10));
   }
-  answerSpell = newSpell;
+  answerSpell = Math.floor((Math.random() * 10));
   document.getElementById('answerSpell').src = "images/invoker-"+listOfAllSpells[answerSpell]+".png";
 }
 function doGame(){
@@ -117,6 +118,12 @@ function resetGame(){
   changeAllOrbs("nothing");
   changeAllOrbs("nothing");
   document.getElementById('spell').src = "images/invoker-nothing.png";
+  document.getElementById('score').innerHTML = "Score : " + 0;
+
+}
+function restartGame(){
+  gameInProgress = false;
+  startGame();
 }
 function createCountDown(timeRemaining) {
     var startTime = Date.now();

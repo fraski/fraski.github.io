@@ -37,3 +37,6 @@
 .gameInfo{
 
 }
+#restartGame{
+  visibility: hidden;
+}
