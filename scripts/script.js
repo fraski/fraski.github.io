@@ -110,6 +110,7 @@ function doGame(){
     }
   }else{
     gameInProgress = false;
+    document.getElementById('restartGame').style.visibility="hidden";
   }
 }
 function resetGame(){
@@ -130,4 +131,7 @@ function createCountDown(timeRemaining) {
     return function() {
        return timeRemaining - ( Date.now() - startTime );
     }
+}
+function showGame(){
+  document.getElementById('game').style.visibility="visible";
 }

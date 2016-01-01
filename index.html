@@ -4,10 +4,24 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script type='text/javascript' src='scripts/script.js'></script>
 </head>
-<body id="game">
+<body id="body" background="images/background.png">
+  <center><div class="topBar">
+    <h1 class="title"> Invoker Game </h1>
+  </div></center>
+  <center><div id="menu" class="menu">
+    <table>
+      <tr>
+        <td><button class="classic" onclick="showGame()"> Classic Game </button></td>
+        <td> Invoke as many spells as possible in 30 seconds </td>
+      </tr>
+      <tr>
+        <td><button class="classic" onclick="showGame()"> 10 Spells </button></td>
+        <td> Invoke 10 spells as quickly as possible (not implemented)</td>
+      </tr>
+    </table>
+  </div></center>
+  <center><div class="game" id="game" >
 
-  <center><div class="game" >
-    <h1 class="title"> Invoker Game</h1>
     <button class = "start" onclick="startGame()"> Start Game </button>
     <div class="currentBalls">
       <img id="ballOne" src="images/invoker-nothing.png" height="50">
@@ -25,8 +39,9 @@
     <br>
     <button id="restartGame" onclick="restartGame()"> Restart Game </button>
   </div></center>
+
   <script type="text/javascript">
-    document.getElementById("game").onkeypress=function(e){
+    document.getElementById("body").onkeypress=function(e){
     var e=window.event || e;
     var keyunicode = e.charCode || e.keyCode;
     switch(keyunicode){
