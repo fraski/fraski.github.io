@@ -92,10 +92,10 @@ function startGame(){
 }
 function newSpell(){
   randNum = Math.floor((Math.random() * 10));
-  while(randNum != answerSpell){
+  while(randNum == answerSpell){
     randNum = Math.floor((Math.random() * 10));
   }
-  answerSpell = Math.floor((Math.random() * 10));
+  answerSpell = randNum;
   document.getElementById('answerSpell').src = "images/invoker-"+listOfAllSpells[answerSpell]+".png";
 }
 function doGame(){
