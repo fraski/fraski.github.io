@@ -1,1 +1,21 @@
 /* Empty. Add your own CSS if you like */
+/* Empty. Add your own CSS if you like */
+.game{
+    display:inline-block;
+}
+#restartGame{
+    margin:5px;
+    visibility:hidden;
+}
+#startGame{
+    margin:5px;
+}
+#title{
+    text-align:center;
+}
+#timer{
+  display:inline;
+}
+#score{
+  display:inline;
+}

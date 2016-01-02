@@ -24,26 +24,42 @@
 <body ng-app="starter">
     <ion-pane>
         <ion-header-bar class="bar-stable">
-            <h1 class="title">Invoker Game</h1>
+            <h1 class="title" id="title">Invoker Game</h1>
         </ion-header-bar>
         <ion-content>
-            <div class="game" id="game">
-                <button class="start" onclick="startGame()"> Start Game </button>
-                <div class="currentBalls">
-                    <img id="ballOne" src="img/invoker-nothing.png" height="50">
-                    <img id="ballTwo" src="img/invoker-nothing.png" height="50">
-                    <img id="ballThree" src="img/invoker-nothing.png" height="50">
-
-                    <img id="spell" src="img/invoker-nothing.png" height="50">
-                    <div class="gameInfo"> <h3 id="timer"> Timer: 0 </h3> <h3 id="score"> Score: 0 </h3> <img id="answerSpell" src="img/invoker-nothing.png" height="50"></div>
+            <div id="wrapper" style="text-align:center">
+                <div class="game" id="game">
+                    <br />
+                    <div class="currentBalls">
+                        <img id="ballOne" src="img/invoker-nothing.png" height="50">
+                        <img id="ballTwo" src="img/invoker-nothing.png" height="50">
+                        <img id="ballThree" src="img/invoker-nothing.png" height="50">
+                        <img id="spell" src="img/invoker-nothing.png" height="50">
+                        <div class="gameInfo"> <h3 id="timer"> Timer: 0 </h3> <h3 id="score"> Score: 0 </h3><br /> <img id="answerSpell" src="img/invoker-nothing.png" height="50"></div>
+                    </div>
+                    <br />
+                    <button class="button button-positive" onclick="addOrb(1)"><img src="img/invoker-quas.png" height="50"></button>
+                    <button class="button button-positive" onclick="addOrb(3)"><img src="img/invoker-wex.png" height="50"> </button>
+                    <button class="button button-positive" onclick="addOrb(6)"><img src="img/invoker-exort.png" height="50"></button>
+                    <button class="button button-positive" onclick="invoke()"><img src="img/invoker-invoke.png" height="50"></button>
+                    <br />
+                    <button class="button button-positive" id="startGame" onclick="startGame()"> Start Game </button>
+                    <br />
+                    <button class="button button-positive" id="restartGame" onclick="restartGame()"> Restart Game </button>
+                    <div class="stats">
+                        <h3>Stats</h3>
+                        <table>
+                            <tr>
+                                <td>Keys Pressed: </td>
+                                <td id="keysPressed">0</td>
+                            </tr>
+                            <tr>
+                                <td>Spells Invoked: </td>
+                                <td id="spellsInvoked">0</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                <br>
-                <button class="ball" onclick="addOrb(1)"><img src="img/invoker-quas.png" height="50"></button>
-                <button class="ball" onclick="addOrb(3)"><img src="img/invoker-wex.png" height="50"> </button>
-                <button class="ball" onclick="addOrb(6)"><img src="img/invoker-exort.png" height="50"></button>
-                <button class="ball" onclick="invoke()"><img src="img/invoker-invoke.png" height="50"></button>
-                <br>
-                <button id="restartGame" onclick="restartGame()"> Restart Game </button>
             </div>
         </ion-content>
     </ion-pane>
