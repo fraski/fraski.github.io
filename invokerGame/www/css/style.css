@@ -1,5 +1,6 @@
 /* Empty. Add your own CSS if you like */
 /* Empty. Add your own CSS if you like */
+
 .game{
     display:inline-block;
 }
@@ -18,4 +19,16 @@
 }
 #score{
   display:inline;
+}
+#quas{
+    padding-top:10px;
+}
+#exort{
+    padding-top:10px;
+}
+#wex{
+    padding-top:10px;
+}
+#invoke{
+    padding-top:10px;
 }
