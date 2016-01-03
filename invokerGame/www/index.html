@@ -21,7 +21,7 @@
     <script src="js/app.js"></script>
     <script src="js/script.js"></script>
 </head>
-<body ng-app="starter">
+<body ng-app="starter" ng-controller="gameCtrl">
     <ion-pane>
         <ion-header-bar class="bar-stable">
             <h1 class="title" id="title">Invoker Game</h1>
@@ -34,28 +34,28 @@
                         <img id="ballOne" src="img/invoker-nothing.png" height="50">
                         <img id="ballTwo" src="img/invoker-nothing.png" height="50">
                         <img id="ballThree" src="img/invoker-nothing.png" height="50">
-                        <img id="spell" src="img/invoker-nothing.png" height="50">
-                        <div class="gameInfo"> <h3 id="timer"> Timer: 0 </h3> <h3 id="score"> Score: 0 </h3><br /> <img id="answerSpell" src="img/invoker-nothing.png" height="50"></div>
+                        <img id="spell" src="img/invoker-{{listOfAllSpells[currentSpell]}}.png" height="50">
+                        <div class="gameInfo"> <h3 id="timer"> Timer: {{time}} </h3> <h3 id="score"> Score: {{score}} </h3><br /> <img id="answerSpell" src="img/invoker-{{listOfAllSpells[answerSpell]}}.png" height="50"></div>
                     </div>
                     <br />
-                    <button id="quas" class="button button-positive" onclick="addOrb(1)"><img src="img/invoker-quas.png" height="50"></button>
-                    <button id="wex" class="button button-positive" onclick="addOrb(3)"><img src="img/invoker-wex.png" height="50"> </button>
-                    <button id="exort" class="button button-positive" onclick="addOrb(6)"><img src="img/invoker-exort.png" height="50"></button>
-                    <button id="invoke" class="button button-positive" onclick="invoke()"><img src="img/invoker-invoke.png" height="50"></button>
+                    <button id="quas" class="button button-positive" ng-click="addOrb(1)"><img src="img/invoker-quas.png" height="50"></button>
+                    <button id="wex" class="button button-positive" ng-click="addOrb(3)"><img src="img/invoker-wex.png" height="50"> </button>
+                    <button id="exort" class="button button-positive" ng-click="addOrb(6)"><img src="img/invoker-exort.png" height="50"></button>
+                    <button id="invoke" class="button button-positive" ng-click="invoke()"><img src="img/invoker-invoke.png" height="50"></button>
                     <br />
-                    <button class="button button-positive" id="startGame" onclick="startGame()"> Start Game </button>
+                    <button class="button button-positive" id="startGame" ng-click="startGame()"> Start Game </button>
                     <br />
-                    <button class="button button-positive" id="restartGame" onclick="restartGame()"> Restart Game </button>
+                    <button class="button button-positive" id="restartGame" ng-click="restartGame()"> Restart Game </button>
                     <div class="stats">
-                        <h3>Stats</h3>
+                        <h3>Stats (Angular)</h3>
                         <table>
                             <tr>
                                 <td>Keys Pressed: </td>
-                                <td id="keysPressed">0</td>
+                                <td>{{stats[0]}}</td>
                             </tr>
                             <tr>
                                 <td>Spells Invoked: </td>
-                                <td id="spellsInvoked">0</td>
+                                <td>{{stats[1]}}</td>
                             </tr>
                         </table>
                     </div>
