@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src= "scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+</head>
+<body  ng-app="myApp" ng-controller="myController">
+    <h1>AngularJS Testing Ground</h1>
+    <input type="text" ng-model = "myname">
+    <ul>
+        <li data-ng-repeat="name in names | filter:myname">{{name}}</li>
+    </ul>
+    <h1>Dota 2 Thing</h1>
+    Steam ID: <input type="text" ng-model = "steamid">
+    <button ng-click="search()"> Search </button>
+    <ul>
+        <li ng-repeat=""></li>
+    </ul>
+</body>
+</html>

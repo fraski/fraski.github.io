@@ -35,13 +35,6 @@ myApp.controller('gameCtrl', function ($scope) {
          listOfBalls[2] = ball;
          $scope.stats[0] = $scope.stats[0] + 1;
      }
-
-     function changeAllOrbs(ball) {
-         document.getElementById('ballOne').src = document.getElementById('ballTwo').src;
-         document.getElementById('ballTwo').src = document.getElementById('ballThree').src;
-         document.getElementById('ballThree').src = "img/invoker-" + ball + ".png";
-     }
-
      $scope.invoke = function () {
          if (listOfBalls[0] != 0 && listOfBalls[1] != 0 && listOfBalls[2] != 0) {
              theSpell = listOfBalls[0] + listOfBalls[1] + listOfBalls[2];
@@ -82,6 +75,13 @@ myApp.controller('gameCtrl', function ($scope) {
          }
 
      }
+     function changeAllOrbs(ball) {
+         document.getElementById('ballOne').src = document.getElementById('ballTwo').src;
+         document.getElementById('ballTwo').src = document.getElementById('ballThree').src;
+         document.getElementById('ballThree').src = "img/invoker-" + ball + ".png";
+     }
+
+     
      $scope.startGame = function() {
          if (gameInProgress != true) {
              document.getElementById('restartGame').style.visibility = "visible";
