@@ -11,3 +11,4 @@ eew = 16x
 qwe = 10x
 theSpell = listOfBalls[0] + listOfBalls[1] + listOfBalls[2];
 switch(theSpell)
+...
