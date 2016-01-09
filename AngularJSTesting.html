@@ -16,7 +16,7 @@
     Steam ID: <input type="text" ng-model = "steamid">
     <button ng-click="search()"> Search </button>
     <ul>
-        <li ng-repeat=""></li>
+        <li ng-repeat="player in players track by $index">{{matchHeroes[$index].localized_name}} :: {{player.account_id}}</li>
     </ul>
 </body>
 </html>
