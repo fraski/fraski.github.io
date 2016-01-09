@@ -24,6 +24,7 @@ myApp.controller('myController',function($scope){
             myurl = "http://mc8.org/fraz/apicall.php?type=GetPlayerSummaries&steamids="
             $.getJSON('http://mc8.org/fraz/apicall.php?type=GetMatchHistory&account_id='+$scope.steamid,function(data){
                 $scope.matchData = data;
+                console.log(data);
                 $scope.match_id = data.result.matches[0].match_id;
                 for(y = 0; y < 10; y++){
                     if(y<9){
