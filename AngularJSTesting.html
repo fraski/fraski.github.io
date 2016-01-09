@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src= "scripts/angular.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/jquery-2.2.0.min.js"></script>
 </head>
 <body  ng-app="myApp" ng-controller="myController">
-    <h1>AngularJS Testing Ground</h1>
-    <input type="text" ng-model = "myname">
-    <ul>
-        <li data-ng-repeat="name in names | filter:myname">{{name}}</li>
-    </ul>
     <h1>Dota 2 Thing</h1>
     Steam ID: <input type="text" ng-model = "steamid">
     <button ng-click="search()"> Search </button>
-    <ul>
-        <li ng-repeat="player in players track by $index">{{matchHeroes[$index].localized_name}} :: {{player.account_id}}</li>
-    </ul>
-    <h1> Testing testing</h1>
-    <table>
+    <table class="table">
         <tr>
+            <td></td>
             <td>Player</td>
+            <td></td>
             <td>Level</td>
-            <td>Kills</td>
-            <td>Deaths</td>
-            <td>Assists</td>
+            <td>K</td>
+            <td>D</td>
+            <td>A</td>
+            <td>KDA</td>
+            <td>Gold</td>
+            <td>LH</td>
+            <td>DN</td>
+            <td>XPM</td>
+            <td>GPM</td>
         </tr>
         <tr ng-repeat="player in match.players">
-            <td>{{player.account_id}}</td>
+            <td><img ng-src ="{{player.hero_img}}"></td>
+            <td>{{player.steam_info.personaname }}</td>
+            <td> <img ng-src="{{player.steam_info.avatar}}" height="32px" width="32px"></td>
             <td>{{player.level}}</td>
             <td>{{player.kills}}</td>
             <td>{{player.deaths}}</td>
             <td>{{player.assists}}</td>
+            <td>{{(player.kills+player.assists)/player.deaths | number:fractionSize}}</td>
+            <td>{{player.gold_per_min * (match.duration/60)| number : 0}}</td>
+            <td>{{player.last_hits}}</td>
+            <td>{{player.denies}}</td>
+            <td>{{player.xp_per_min}}</td>
+            <td>{{player.gold_per_min}}</td>
         </tr>
     </table>
+        <h1>AngularJS Testing Ground</h1>
+    <input type="text" ng-model = "myname">
+    <ul>
+        <li data-ng-repeat="name in names | filter:myname">{{name}}</li>
+    </ul>
 </body>
-</html>
+</html

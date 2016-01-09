@@ -24,24 +24,19 @@ myApp.controller('myController',function($scope){
             myurl = "http://mc8.org/fraz/apicall.php?type=GetPlayerSummaries&steamids="
             $.getJSON('http://mc8.org/fraz/apicall.php?type=GetMatchHistory',function(data){
                 $scope.matchData = data;
-                $scope.players = $scope.matchData.result.matches[0].players;
-                $scope.match_id = $scope.matchData.result.matches[0].match_id;
-                console.log($scope.players[0]);
+                $scope.match_id = data.result.matches[0].match_id;
                 for(y = 0; y < 10; y++){
-                    $scope.players[y].account_id = '765' + ($scope.players[y].account_id + 61197960265728);
                     if(y<9){
-                        myurl += $scope.players[y].account_id +",";
+                        myurl += data.result.matches[0].players[y].account_id +",";
                     }else{
-                        myurl += $scope.players[y].account_id;
+                        myurl += data.result.matches[0].players[y].account_id;
                     }
-                    $scope.gameInfo.push(new Player($scope.players[y].account_id));
                 }
                 console.log(myurl);
                 for(x = 0; x < 10; x++){
                     $scope.heroes.forEach(function(entry){
-                        if(entry.id == $scope.players[x].hero_id)
+                        if(x < $scope.players.length && entry.id == $scope.players[x].hero_id)
                             {
-                                console.log(entry);
                                 $scope.matchHeroes.push(entry);
                                 $scope.gameInfo[x].addHero(entry);
                             }
@@ -49,26 +44,45 @@ myApp.controller('myController',function($scope){
                 }
                 $scope.$apply();
             });
-            $.getJSON(myurl,function(data){
-                console.log(data);
-                for(x=0;x <10; x++){
-                    data.response.players.forEach(function(entry){
-                        if($scope.gameInfo[x].account_id == entry.steamid){
-                            console.log("Match");
-                            $scope.gameInfo[x].addAccountInfo(entry);
-                        }
-                    });
-                }
-                console.log($scope.gameInfo);
-                $scope.$apply();
-            });
-            
             $.getJSON("http://mc8.org/fraz/apicall.php?type=GetMatchDetails&match_id=" + $scope.match_id,function(data){
                 console.log("HERE");
                 $scope.match = data.result;
+                for(x = 0; x < 10; x++){
+                    $scope.match.players[x].account_id = '765' + ($scope.match.players[x].account_id + 61197960265728);
+                }
+                for(x = 0; x < 10; x++){
+                    $scope.heroes.forEach(function(entry){
+                        if(entry.id == $scope.match.players[x].hero_id)
+                            {
+                                $scope.match.players[x].hero_name = entry.localized_name;
+                                $scope.match.players[x].hero_img = "http://cdn.dota2.com/apps/dota2/images/heroes/" + entry.name.replace('npc_dota_hero_','') + "_sb.png";
+                            }
+                    });
+                    
+                }
                 console.log($scope.match);
                 $scope.$apply();
+                $.getJSON(myurl,function(data){
+                console.log(data);
+                for(x = 0; x <10;x++){
+                    data.response.players.forEach(function(entry){
+                        if( x < $scope.match.players.length){
+                            if($scope.match.players[x].account_id == entry.steamid)
+                                $scope.match.players[x].steam_info = entry;
+                        }
+                    });
+                }
+                for(x = 0; x < 10; x++){
+                    if($scope.match.players[x].steam_info == null){
+                        console.log("No Info :" + x);
+                        $scope.match.players[x].steam_info = {personaname:"Anonymous"};
+                        
+                    }
+                }
+                $scope.$apply();
             });
+            });
+            
             
         });
     }
