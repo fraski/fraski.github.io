@@ -1,0 +1,5 @@
+GetMatchHistory from steamid
+using the match_id GetMatchDetails
+
+using all the match details, output info for
+the user to see.
