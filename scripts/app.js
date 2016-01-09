@@ -44,8 +44,7 @@ myApp.controller('myController',function($scope){
                     });
                 }
                 $scope.$apply();
-            });
-            $.getJSON("http://mc8.org/fraz/apicall.php?type=GetMatchDetails&match_id=" + $scope.match_id,function(data){
+                $.getJSON("http://mc8.org/fraz/apicall.php?type=GetMatchDetails&match_id=" + $scope.match_id,function(data){
                 console.log("HERE");
                 $scope.match = data.result;
                 for(x = 0; x < 10; x++){
@@ -85,6 +84,8 @@ myApp.controller('myController',function($scope){
             });
 
 
+            });
+            
         });
     }
 
