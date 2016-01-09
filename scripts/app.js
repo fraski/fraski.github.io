@@ -22,7 +22,7 @@ myApp.controller('myController',function($scope){
         console.log("Searching... not.");
         $(function(){
             myurl = "http://mc8.org/fraz/apicall.php?type=GetPlayerSummaries&steamids="
-            $.getJSON('http://mc8.org/fraz/apicall.php?type=GetMatchHistory',function(data){
+            $.getJSON('http://mc8.org/fraz/apicall.php?type=GetMatchHistory&account_id='+$scope.steamid,function(data){
                 $scope.matchData = data;
                 $scope.match_id = data.result.matches[0].match_id;
                 for(y = 0; y < 10; y++){
@@ -58,7 +58,7 @@ myApp.controller('myController',function($scope){
                                 $scope.match.players[x].hero_img = "http://cdn.dota2.com/apps/dota2/images/heroes/" + entry.name.replace('npc_dota_hero_','') + "_sb.png";
                             }
                     });
-                    
+
                 }
                 console.log($scope.match);
                 $scope.$apply();
@@ -76,17 +76,17 @@ myApp.controller('myController',function($scope){
                     if($scope.match.players[x].steam_info == null){
                         console.log("No Info :" + x);
                         $scope.match.players[x].steam_info = {personaname:"Anonymous"};
-                        
+
                     }
                 }
                 $scope.$apply();
             });
             });
-            
-            
+
+
         });
     }
-    
+
     $( document ).ready(function() {
         $.getJSON('http://mc8.org/fraz/apicall.php?type=GetHeroes',function(data){
             console.log(data);
