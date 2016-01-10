@@ -88,6 +88,7 @@ myApp.controller('myController',function($scope){
     }
 
     $( document ).ready(function() {
+        console.log("loaded?");
         $.getJSON('http://mc8.org/fraz/apicall.php?type=GetHeroes',function(data){
             console.log(data);
             $scope.heroes = data.result.heroes;
