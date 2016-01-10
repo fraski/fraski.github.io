@@ -26,8 +26,6 @@ myApp.controller('myController',function($scope){
                 $scope.matchData = data;
                 console.log(data);
                 $scope.match_id = data.result.matches[0].match_id;
-                console.log($scope.match_id);
-                console.log(data.result.matches[0].match_id);
                 for(y = 0; y < 10; y++){
                     if(y<9){
                         myurl += data.result.matches[0].players[y].account_id +",";
@@ -46,7 +44,7 @@ myApp.controller('myController',function($scope){
                     });
                 }
                 $scope.$apply();
-            $.getJSON("http://mc8.org/fraz/apicall.php?type=GetMatchDetails&match_id=" + $scope.match_id,function(data){
+                $.getJSON("http://mc8.org/fraz/apicall.php?type=GetMatchDetails&match_id=" + $scope.match_id,function(data){
                         console.log("HERE");
                         $scope.match = data.result;
                     for(x = 0; x < 10; x++){
@@ -88,7 +86,7 @@ myApp.controller('myController',function($scope){
 
                 });
             
-        });
+            });
     }
 
     $( document ).ready(function() {
