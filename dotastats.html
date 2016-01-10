@@ -3,15 +3,14 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src= "scripts/angular.min.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="scripts/dotaApp.js"></script>
     <script src="scripts/jquery-2.2.0.min.js"></script>
 </head>
-<body  ng-app="myApp" ng-controller="myController">
+<body  ng-app="dotaApp" ng-controller="dotaController">
     <div class="container">
-        <h1>Dota 2, find last match by 64 bit id </h1>
-        <h2>Example value: 76561198033641928</h2>
-        Steam ID: <input type="text" ng-model = "steamid" value="76561198033641928">
-        <button ng-click="search()"> Search </button>
+        <center><h1>Dota Stats</h1></center>
+        <center><p>(paste this in : 76561198033641928 )</p> </center><
+        <center>Steam ID (64bit): <input type="text" ng-model="steamid" > <button ng-click="search()">Search</button></center>
     </div>
     <div class="container" id="gameInfoContainer">
         <center><h2> {{ winString }} </h2></center>
@@ -67,10 +66,5 @@
             </tr>
         </table>
     </div>
-        <h1>AngularJS Testing Ground</h1>
-    <input type="text" ng-model = "myname">
-    <ul>
-        <li data-ng-repeat="name in names | filter:myname">{{name}}</li>
-    </ul>
 </body>
 </html

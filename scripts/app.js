@@ -19,6 +19,7 @@ myApp.controller('myController',function($scope){
     $scope.matchHeroes = [];
     $scope.gameInfo = [];
     $scope.items;
+    $scope.winString;
     $scope.getItem = function(item_id){
       var val = "";
       $scope.items.forEach(function(entry){
@@ -35,6 +36,7 @@ myApp.controller('myController',function($scope){
         $(function(){
             myurl = "http://mc8.org/fraz/apicall.php?type=GetPlayerSummaries&steamids="
             $.getJSON('http://mc8.org/fraz/apicall.php?type=GetMatchHistory&account_id='+$scope.steamid,function(data){
+                console.log('http://mc8.org/fraz/apicall.php?type=GetMatchHistory&account_id='+$scope.steamid);
                 $scope.matchData = data;
                 console.log(data);
                 $scope.match_id = data.result.matches[0].match_id;
@@ -50,8 +52,15 @@ myApp.controller('myController',function($scope){
                 }
                 $scope.$apply();
                 $.getJSON("http://mc8.org/fraz/apicall.php?type=GetMatchDetails&match_id=" + $scope.match_id,function(data){
+                        console.log("http://mc8.org/fraz/apicall.php?type=GetMatchDetails&match_id=" + $scope.match_id);
                         console.log("HERE");
                         $scope.match = data.result;
+                        if($scope.match.radiant_win == false){
+                            $scope.winString = "Dire Victory";
+                        }else{
+                            $scope.winString = "Radiant Victory";
+                        }
+                        
                     for(x = 0; x < 10; x++){
                         $scope.match.players[x].account_id = '765' + ($scope.match.players[x].account_id + 61197960265728);
                         if(x<9){
@@ -73,7 +82,8 @@ myApp.controller('myController',function($scope){
                     console.log($scope.match);
                     $scope.$apply();
                     $.getJSON(myurl,function(data){
-                    console.log(data);
+                        console.log(myurl);
+                        console.log(data);
                     for(x = 0; x <10;x++){
                         data.response.players.forEach(function(entry){
                             if( x < $scope.match.players.length){
@@ -109,6 +119,7 @@ myApp.controller('myController',function($scope){
             //});
             console.log('765' + (73376200+61197960265728));
             console.log('765' + (22215797+61197960265728));
+            console.log('765' + (37485709+ 61197960265728))
 
         });
         $.getJSON('http://mc8.org/fraz/apicall.php?type=GetGameItems',function(data){
