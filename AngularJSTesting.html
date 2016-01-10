@@ -26,6 +26,15 @@
             <td>DN</td>
             <td>XPM</td>
             <td>GPM</td>
+            <td>HD</td>
+            <td>HH</td>
+            <td>TD</td>
+            <td>Items</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr ng-repeat="player in match.players">
             <td><img ng-src ="{{player.hero_img}}"></td>
@@ -41,6 +50,16 @@
             <td>{{player.denies}}</td>
             <td>{{player.xp_per_min}}</td>
             <td>{{player.gold_per_min}}</td>
+            <td>{{player.hero_damage}}</td>
+            <td>{{player.hero_healing}}</td>
+            <td>{{player.tower_damage}}</td>
+            <td><img width="42.5px" height="32px" ng-src="{{getItem(player.item_0)}}"></td>
+            <td><img width="42.5px" height="32px" ng-src="{{getItem(player.item_1)}}"></td>
+            <td><img width="42.5px" height="32px" ng-src="{{getItem(player.item_2)}}"></td>
+            <td><img width="42.5px" height="32px" ng-src="{{getItem(player.item_3)}}"></td>
+            <td><img width="42.5px" height="32px" ng-src="{{getItem(player.item_4)}}"></td>
+            <td><img width="42.5px" height="32px" ng-src="{{getItem(player.item_5)}}"></td>
+            
         </tr>
     </table>
         <h1>AngularJS Testing Ground</h1>

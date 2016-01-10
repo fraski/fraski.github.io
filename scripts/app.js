@@ -18,6 +18,18 @@ myApp.controller('myController',function($scope){
     $scope.heroes;
     $scope.matchHeroes = [];
     $scope.gameInfo = [];
+    $scope.items;
+    $scope.getItem = function(item_id){
+      var val = "";
+      $scope.items.forEach(function(entry){
+          if(entry.id == item_id){
+              console.log("should return now");
+              val = entry.name;
+          }
+      });
+        if(val!= "")
+            return "http://cdn.dota2.com/apps/dota2/images/items/" + val.replace('item_','') + "_lg.png"; 
+    };
     $scope.search = function(){
         console.log("Searching... not.");
         $(function(){
@@ -98,6 +110,13 @@ myApp.controller('myController',function($scope){
             console.log('765' + (73376200+61197960265728));
             console.log('765' + (22215797+61197960265728));
 
+        });
+        $.getJSON('http://mc8.org/fraz/apicall.php?type=GetGameItems',function(data){
+            console.log(data);
+            $scope.items = data.result.items;
+            //$scope.heroes.forEach(function(entry){
+               //console.log(entry);
+            //});
         });
     });
 });
