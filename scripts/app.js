@@ -26,13 +26,6 @@ myApp.controller('myController',function($scope){
                 $scope.matchData = data;
                 console.log(data);
                 $scope.match_id = data.result.matches[0].match_id;
-                for(y = 0; y < 10; y++){
-                    if(y<9){
-                        myurl += data.result.matches[0].players[y].account_id +",";
-                    }else{
-                        myurl += data.result.matches[0].players[y].account_id;
-                    }
-                }
                 console.log(myurl);
                 for(x = 0; x < 10; x++){
                     $scope.heroes.forEach(function(entry){
@@ -49,6 +42,11 @@ myApp.controller('myController',function($scope){
                         $scope.match = data.result;
                     for(x = 0; x < 10; x++){
                         $scope.match.players[x].account_id = '765' + ($scope.match.players[x].account_id + 61197960265728);
+                        if(y<9){
+                            myurl += data.result.matches[0].players[x].account_id +",";
+                        }else{
+                            myurl += data.result.matches[0].players[x].account_id;
+                        }
                     }
                     for(x = 0; x < 10; x++){
                         $scope.heroes.forEach(function(entry){
