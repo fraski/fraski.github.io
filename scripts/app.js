@@ -42,7 +42,7 @@ myApp.controller('myController',function($scope){
                         $scope.match = data.result;
                     for(x = 0; x < 10; x++){
                         $scope.match.players[x].account_id = '765' + ($scope.match.players[x].account_id + 61197960265728);
-                        if(y<9){
+                        if(x<9){
                             myurl += data.result.matches[0].players[x].account_id +",";
                         }else{
                             myurl += data.result.matches[0].players[x].account_id;
