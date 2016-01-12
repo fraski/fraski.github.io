@@ -116,5 +116,9 @@ dotaApp.controller('dotaController',function($scope){
             console.log(data);
             $scope.items = data.result.items;
         });
+        $.getJSON('http://www.craftiii4.co.uk/3squared/api.php', function (data) {
+                console.log("HELLO?");
+                console.log(data);
+        });
     });
 });
